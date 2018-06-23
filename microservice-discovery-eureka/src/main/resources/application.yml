@@ -1,0 +1,26 @@
+# enable Eureka authentication for web platform, it dependency spring security jar
+security:
+  user:
+    name: admin
+    password: 123
+  basic:
+    enabled: true
+server:
+#  port: 8761
+  port: 10000
+eureka:
+  datacenter: cloud     # modify eureka web display of system status
+  environmemt: product  # modify eureka web display of system status
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://admin:123@localhost:10000/eureka/
+#  server:
+#    enable-self-preservation: false #Do not configure in a production environment!!!
+#    delta-retention-timer-interval-in-ms: 4000  # default is 60*1000, clean interval. Do not configure in a production environment!!!
+
+
+
+

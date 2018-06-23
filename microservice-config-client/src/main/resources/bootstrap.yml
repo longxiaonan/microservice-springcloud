@@ -1,0 +1,37 @@
+server:
+  port: 7910
+
+spring:
+  application:
+    name: sc  #display name on Eureka web page
+#  profiles:
+#    active: dev
+  cloud:
+    config:
+      ### discovery config server from eureka
+      discovery:
+        enabled: true
+        service-id: microservice-config-server
+      profile: dev
+      fail-fast: true
+      ### direct connect config server
+#      uri: http://localhost:8800/
+#      profile: dev
+      ### When config server require authentication, we need to config authentication param
+#      username:
+#      password:
+      ### When config server store method is git repo. label default is master
+#      label:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10000/eureka/  # common config
+  instance:
+    prefer-ip-address: true #default access method by hostname,we usually to configure true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}  #modify instance display name at the Eureka web
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # expose all api

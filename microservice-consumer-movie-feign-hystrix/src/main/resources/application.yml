@@ -1,0 +1,27 @@
+server:
+  port: 7901
+
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://admin:123@localhost:10000/eureka/
+      defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://${security.user.name}:${security.user.password}@localhost:10000/eureka/
+    healthcheck: # dependency on spring-boot-starter-actuator
+      enabled: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+spring:
+  application:
+    name: microservice-consumer-movie
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # monitor all
+
+feign:
+  hystrix:
+    enabled: true

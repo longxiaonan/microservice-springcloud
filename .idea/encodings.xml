@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-config-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie-feign-customizing-properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie-feign-hystrix" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie-ribbon-customizing-configuration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie-ribbon-customizing-properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-consumer-movie-ribbon-customizing-properties-hystrix" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-discovery-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-discovery-eureka-ha" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-gateway-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-hystrix-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-provider-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-provider-user/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-spring-cloud-admin-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-spring-cloud-admin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-trace-Sleuth-zipkin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-trace-zipkin-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservice-trace-zipkin-server" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,45 @@
+server:
+  port: 7901
+
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://admin:123@localhost:10000/eureka/
+      defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://${security.user.name}:${security.user.password}@localhost:10000/eureka/
+    healthcheck: # dependency on spring-boot-starter-actuator
+      enabled: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+spring:
+  application:
+    name: microservice-consumer-movie
+
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # monitor all
+
+############## feign config ---start---  ########
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full  #FULL, HEADERS, BASIC, NONE  # no effect
+  compression:  # request or response GZIP compression for your Feign requests
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+# server default timeout is 1 sec, we can modify it to 5 sec. Solve the first acess report 404 problem
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+############## feign config ---end---  ###########
+
+

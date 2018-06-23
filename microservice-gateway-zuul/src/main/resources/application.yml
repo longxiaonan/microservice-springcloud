@@ -1,0 +1,38 @@
+server:
+#  port: 8761
+  port: 8030
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://admin:123@localhost:10000/eureka/
+  instance:
+    prefer-ip-address: true #default access method by hostname,we usually to configure true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}  #modify instance display name at the Eureka web
+
+zuul:
+#  ignoredServices: '*'    # ignore all
+  ignoredServices: microservice-provider-user1,microservice-provider-user2  # ignore some service
+  routes:
+  #### 1. common routes, default support LoadBalancer
+#    microservice-consumer-movie: /movie/**
+#    microservice-provider-user: /user/**
+  ### 2. simple url-routes
+    abc:
+      path: /user/**
+      serviceId: microservice-provider-user
+    abd:
+      path: /movie/**
+      serviceId: microservice-consumer-movie
+spring:
+  application:
+    name: microservice-gateway-zuul
+
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # expose all api
+
+spring.multipart.

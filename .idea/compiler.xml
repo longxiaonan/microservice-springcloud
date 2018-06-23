@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-config-client" />
+        <module name="microservice-config-server" />
+        <module name="microservice-consumer-movie" />
+        <module name="microservice-consumer-movie-feign" />
+        <module name="microservice-consumer-movie-feign-customizing-properties" />
+        <module name="microservice-consumer-movie-feign-hystrix" />
+        <module name="microservice-consumer-movie-ribbon-customizing-configuration" />
+        <module name="microservice-consumer-movie-ribbon-customizing-properties" />
+        <module name="microservice-consumer-movie-ribbon-customizing-properties-hystrix" />
+        <module name="microservice-discovery-eureka" />
+        <module name="microservice-discovery-eureka-ha" />
+        <module name="microservice-gateway-zuul" />
+        <module name="microservice-hystrix-dashboard" />
+        <module name="microservice-provider-user" />
+        <module name="microservice-spring-cloud-admin-client" />
+        <module name="microservice-spring-cloud-admin-server" />
+        <module name="microservice-trace-Sleuth-zipkin-server" />
+        <module name="microservice-trace-zipkin-client" />
+        <module name="microservice-trace-zipkin-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="microservice-config-client" target="1.8" />
+      <module name="microservice-config-server" target="1.8" />
+      <module name="microservice-consumer-movie" target="1.8" />
+      <module name="microservice-consumer-movie-feign" target="1.8" />
+      <module name="microservice-consumer-movie-feign-customizing" target="1.8" />
+      <module name="microservice-consumer-movie-feign-customizing-properties" target="1.8" />
+      <module name="microservice-consumer-movie-feign-hystrix" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-customizing-configuration" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-customizing-properties" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-customizing-properties-hystrix" target="1.8" />
+      <module name="microservice-consumer-movie-ribbonhardcode" target="1.8" />
+      <module name="microservice-consumer-movie-ribbonproperties" target="1.8" />
+      <module name="microservice-discovery-eureka" target="1.8" />
+      <module name="microservice-discovery-eureka-ha" target="1.8" />
+      <module name="microservice-gateway-zuul" target="1.8" />
+      <module name="microservice-hystrix-dashboard" target="1.8" />
+      <module name="microservice-provider-user" target="1.8" />
+      <module name="microservice-spring-cloud-admin-client" target="1.8" />
+      <module name="microservice-spring-cloud-admin-server" target="1.8" />
+      <module name="microservice-springcloud" target="1.8" />
+      <module name="microservice-trace-Sleuth-zipkin-server" target="1.8" />
+      <module name="microservice-trace-zipkin-client" target="1.8" />
+      <module name="microservice-trace-zipkin-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+server:
+#  port: 8761
+  port: 8801
+spring:
+  application:
+    name: microservice-config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:./conf/,file:./conf/{application},file:./conf/{application}/{profile}
+#          search-locations: classpath:/config/
+#          search-locations: C:/tmp

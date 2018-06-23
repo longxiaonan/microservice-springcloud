@@ -1,0 +1,2 @@
+microservice-consumer-movie项目使用ribbon的configuration方式
+本项目使用在yml中的配置文件方式实现ribbon

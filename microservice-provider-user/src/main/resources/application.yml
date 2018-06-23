@@ -1,0 +1,48 @@
+server:
+  port: 7910
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://admin:123@localhost:10000/eureka/
+      defaultZone: http://localhost:10000/eureka/  # common config
+#      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/   #eureka ha
+#      defaultZone: http://${security.user.name}:${security.user.password}@localhost:10000/eureka/      #when start authentication
+#    healthcheck: # dependency on spring-boot-starter-actuator
+#      enabled: true
+  instance:
+    prefer-ip-address: true #default access method by hostname,we usually to configure true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}  #modify instance display name at the Eureka web
+#    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    metadata-map:
+      zone: ABC    #  the client is made aware of the meaning of the metadata
+      longxiaonan: BBC   # additional metadata does not change the behavior of the client
+#    lease-renewal-interval-in-seconds: 10  # the flush interval of information to register eureka, Do not configure in a production environment!!!,it will break the self-preservation
+#    lease-expiration-duration-in-seconds: 30 # expiration times, Do not configure in a production environment!!!,it will break the self-preservation
+spring:
+  jpa:
+    generate-ddl: false # Whether DDL statements are generated at startup
+    show-sql: true
+    hibernate:
+      ddl-auto: none #jpa depend on hibernate,so need to config hibernate here
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql  #modify the ddl statements path, The default path is "classpath:schema.sql"
+    data: classpath:data.sql     #modify the ddl statements path, The default path is "classpath:data.sql"
+  application:
+    name: microservice-provider-user  #display name on Eureka web page
+logging:
+  level:
+    root: INFO
+    #display sql and print it
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # expose all api
+
+
