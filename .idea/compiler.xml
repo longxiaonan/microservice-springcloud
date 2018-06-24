@@ -22,7 +22,6 @@
         <module name="microservice-provider-user" />
         <module name="microservice-spring-cloud-admin-client" />
         <module name="microservice-spring-cloud-admin-server" />
-        <module name="microservice-trace-Sleuth-zipkin-server" />
         <module name="microservice-trace-zipkin-client" />
         <module name="microservice-trace-zipkin-server" />
       </profile>

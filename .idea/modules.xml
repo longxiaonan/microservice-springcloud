@@ -19,7 +19,6 @@
       <module fileurl="file://$PROJECT_DIR$/microservice-spring-cloud-admin-client/microservice-spring-cloud-admin-client.iml" filepath="$PROJECT_DIR$/microservice-spring-cloud-admin-client/microservice-spring-cloud-admin-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-spring-cloud-admin-server/microservice-spring-cloud-admin-server.iml" filepath="$PROJECT_DIR$/microservice-spring-cloud-admin-server/microservice-spring-cloud-admin-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-springcloud.iml" filepath="$PROJECT_DIR$/microservice-springcloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/microservice-trace-Sleuth-zipkin-server/microservice-trace-Sleuth-zipkin-server.iml" filepath="$PROJECT_DIR$/microservice-trace-Sleuth-zipkin-server/microservice-trace-Sleuth-zipkin-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-trace-zipkin-client/microservice-trace-zipkin-client.iml" filepath="$PROJECT_DIR$/microservice-trace-zipkin-client/microservice-trace-zipkin-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-trace-zipkin-server/microservice-trace-zipkin-server.iml" filepath="$PROJECT_DIR$/microservice-trace-zipkin-server/microservice-trace-zipkin-server.iml" />
     </modules>

@@ -14,12 +14,15 @@ spring:
       profile: dev
       fail-fast: true
   zipkin:
-    base-url: http://183.63.187.150:9411
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+      percentage: 1.0
 # monitor: spring-boot-starter-actuator config and Spring Boot Admin Server config
 management:
   endpoints:
-    health:
-      show-details: always
+#    health:
+#      show-details: always
     web:
       exposure:
         include: ["*"]  # monitor all  # ["health", "info"]
