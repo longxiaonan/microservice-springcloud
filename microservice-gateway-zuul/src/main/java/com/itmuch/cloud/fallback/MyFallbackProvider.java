@@ -11,8 +11,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Provide a default fallback for all routes.
- */
+ * @ClassName MyFallbackProvider
+ * @Description 当服务不可用的时候, 提供默认的fallback方法返回给调用者
+ * @Author longxn
+ * @Date 20:59 2018/6/27
+ **/
 class MyFallbackProvider implements FallbackProvider {
     @Override
     public String getRoute() {

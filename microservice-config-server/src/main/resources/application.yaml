@@ -2,6 +2,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://192.168.3.18:10000/eureka/
 #      defaultZone: http://admin:123@localhost:10000/eureka/
   instance:
     prefer-ip-address: true #default access method by hostname,we usually to configure true

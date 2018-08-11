@@ -10,6 +10,7 @@ spring:
     config:
       server:
         native:
-          search-locations: file:./conf/,file:./conf/{application},file:./conf/{application}/{profile}
+#          search-locations: file:./conf/,file:./conf/{application},file:./conf/{application}/{profile}
 #          search-locations: classpath:/config/
-#          search-locations: C:/tmp
+          search-locations: C:/tmp/conf,C:/tmp/conf/{application}/{profile},C:/tmp/conf/{application}
+#          search-locations: /apps/vdp/conf,/apps/vdp/conf/{application}/{profile},/apps/vdp/conf/{application}

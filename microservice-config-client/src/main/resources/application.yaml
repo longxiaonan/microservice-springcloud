@@ -1,0 +1,6 @@
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]  # expose all api

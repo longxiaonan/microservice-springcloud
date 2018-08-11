@@ -36,6 +36,6 @@ public class MovieController {
 //        ServiceInstance serviceInstance02 = balancerClient.choose("microservice-provider-user02");
 //        System.out.println("222:"+serviceInstance02.getServiceId() + ":" + serviceInstance02.getHost() + ":" + serviceInstance02.getUri() +":"+serviceInstance02.getPort());
 
-        return null;
+        return "111:"+serviceInstance.getServiceId() + ":" +serviceInstance.getHost() + ":" + serviceInstance.getUri() +":"+serviceInstance.getPort();
     }
 }

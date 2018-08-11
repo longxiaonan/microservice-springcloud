@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User postUser(@RequestBody User user){
+    public User postUser(@RequestParam User user){
         return user;
     }
 

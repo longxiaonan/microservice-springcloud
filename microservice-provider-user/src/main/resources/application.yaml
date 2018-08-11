@@ -1,10 +1,11 @@
 server:
-  port: 7910
+  port: 7911
 eureka:
   client:
     serviceUrl:
 #      defaultZone: http://admin:123@localhost:10000/eureka/
-      defaultZone: http://localhost:10000/eureka/  # common config
+#      defaultZone: http://localhost:10000/eureka/  # common config
+      defaultZone: http://192.168.3.18:10000/eureka/  # common config
 #      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/   #eureka ha
 #      defaultZone: http://${security.user.name}:${security.user.password}@localhost:10000/eureka/      #when start authentication
 #    healthcheck: # dependency on spring-boot-starter-actuator

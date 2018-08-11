@@ -52,5 +52,29 @@
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <!-- ######通过dockerfile构建###### -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <!-- imageName 指定生成的镜像名称 -->
+                    <imageName>183.63.187.150:8082/itmuch/microservice-config-server:0.0.5</imageName>
+                    <!-- dockerHost 指定 Docker Remote API 的远程访问地址, 不写默认是localhost:2375 -->
+                    <dockerHost>http://192.168.3.18:2375</dockerHost>
+                    <!--<dockerHost>http://183.63.187.147:2375</dockerHost>-->
+                    <dockerDirectory>${project.basedir}/src/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

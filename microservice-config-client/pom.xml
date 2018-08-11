@@ -38,11 +38,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- 使用Euraka时配置, 不配置报错 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
         <!-- Eureka dependency end -->
 
         <!-- 监控生产管理的模块: 开启会出现dataSource的bean依赖死循环, 暂时注释掉 -->
@@ -65,10 +60,36 @@
         </dependency>
 
         <!-- Open spring cloud config client retry -->
-        <dependency>
-            <groupId>spring-retry</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>spring-retry</groupId>-->
+            <!--<artifactId>spring-boot-starter-aop</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- ######通过dockerfile构建###### -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <!-- imageName 指定生成的镜像名称 -->
+                    <imageName>183.63.187.150:8082/itmuch/microservice-config-client:0.0.3</imageName>
+                    <!-- dockerHost 指定 Docker Remote API 的远程访问地址, 不写默认是localhost:2375 -->
+                    <dockerHost>http://192.168.3.18:2375</dockerHost>
+                    <!--<dockerHost>http://183.63.187.147:2375</dockerHost>-->
+                    <dockerDirectory>${project.basedir}/src/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

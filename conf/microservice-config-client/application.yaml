@@ -1,0 +1,6 @@
+#当config client指定的profile文件(如dev,prod)不存在,或者文件存在但是key不存在时生效
+
+#可以用于存放当前项目的各个配置环境下的共同配置
+
+##http://localhost:8801/microservice-config-client/profile
+profile: application--inner.yml,application,workspace

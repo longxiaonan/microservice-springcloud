@@ -47,5 +47,76 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
+    <!-- docker 插件, 通过命令"mvn clean package docker:build  -DpushImage"实现镜像构建和推送 -->
+    <build>
+        <plugins>
+            <!-- ######直接构建方式###### -->
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>docker-maven-plugin</artifactId>-->
+                <!--<version>0.4.13</version>-->
+                <!--<configuration>-->
+                    <!--<imageName>183.63.187.150:8082/itmuch/microservice-discovery-eureka:0.0.4</imageName>-->
+                    <!--&lt;!&ndash; docker hub的写法 &ndash;&gt;-->
+                    <!--&lt;!&ndash;<imageName>itmuch/microservice-discovery-eureka:0.0.4</imageName>&ndash;&gt;-->
+                    <!--<dockerHost>http://192.168.3.18:2375</dockerHost>-->
+                    <!--<baseImage>java</baseImage>-->
+                    <!--<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>-->
+                    <!--<resources>-->
+                        <!--<resource>-->
+                            <!--<targetPath>/</targetPath>-->
+                            <!--<directory>${project.build.directory}</directory>-->
+                            <!--<include>${project.build.finalName}.jar</include>-->
+                        <!--</resource>-->
+                    <!--</resources>-->
+                    <!--&lt;!&ndash; 与maven配置文件settings.xml中配置的server.id一致，用于推送镜像 &ndash;&gt;-->
+                    <!--<serverId>mydocker</serverId>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
+            <!-- ######通过dockerfile构建###### -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <!-- imageName 指定生成的镜像名称,加上183.63.187.150:8082为了方便在dockerhost推送到nexus -->
+                    <imageName>183.63.187.150:8082/itmuch/microservice-discovery-eureka:0.0.5</imageName>
+                    <!-- dockerHost 指定 Docker Remote API 的远程访问地址, 不写默认是localhost:2375 -->
+                    <dockerHost>http://192.168.3.18:2375</dockerHost>
+                    <!--<dockerHost>http://183.63.187.147:2375</dockerHost>-->
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
+            <!-- dockerfile插件方式 -->
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>dockerfile-maven-plugin</artifactId>-->
+                <!--<version>1.3.7</version>-->
+                <!--&lt;!&ndash;放开这块注释，则运行mvn deploy命令就会打包镜像<executions>&ndash;&gt;-->
+                <!--&lt;!&ndash;<execution>&ndash;&gt;-->
+                <!--&lt;!&ndash;<id>default</id>&ndash;&gt;-->
+                <!--&lt;!&ndash;<goals>&ndash;&gt;-->
+                <!--&lt;!&ndash;<goal>build</goal>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<goal>push</goal>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;</goals>&ndash;&gt;-->
+                <!--&lt;!&ndash;</execution>&ndash;&gt;-->
+                <!--&lt;!&ndash;</executions>&ndash;&gt;-->
+                <!--<configuration>-->
+                    <!--<repository>${docker.image.prefix}/${project.artifactId}</repository>-->
+                    <!--<buildArgs>-->
+                        <!--<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
+                    <!--</buildArgs>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
 </project>

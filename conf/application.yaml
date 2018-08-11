@@ -1,0 +1,8 @@
+#当config client指定的profile文件(如dev,prod)不存在,且不存在项目的application.yaml时(如microservice-config-client目录下的
+#application.yaml)生效
+#或者文件存在但是key不存在时, 匹配到该文件的key
+
+#可以用于存放所有项目的公共配置
+
+##http://localhost:8801/microservice-config-client/profile
+profilerr: application--outer.yml,application,workspace

@@ -18,7 +18,7 @@ zuul:
 #    microservice-consumer-movie: /movie/**
 #    microservice-provider-user: /user/**
   ### 2. simple url-routes
-    abc:
+    abc: # 唯一和随意的key
       path: /user/**
       serviceId: microservice-provider-user
     abd:
@@ -34,5 +34,3 @@ management:
     web:
       exposure:
         include: ["*"]  # expose all api
-
-spring.multipart.

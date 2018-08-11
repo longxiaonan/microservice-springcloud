@@ -1,0 +1,8 @@
+#config client指定该profile文件且key存在时有效
+
+#http://localhost:8801/microservice-config-client-prod/profile
+profile: sc-prod122233333444,ide-workspace
+
+user:
+  name: longxn-prooo
+  age: 18

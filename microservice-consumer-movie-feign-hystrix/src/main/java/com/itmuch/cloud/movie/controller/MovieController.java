@@ -8,6 +8,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.ConstraintViolationException;
 import java.util.Map;
 
 @RestController
@@ -28,14 +29,58 @@ public class MovieController {
      */
     @GetMapping("/movie2/{id}")
     public User findByIdFeign(@PathVariable Long id){
-        User user = userFeignClient.findById(id);
+        User user = null;
+        try {
+            user = userFeignClient.findById(id);
+        }catch (ConstraintViolationException e){//javax.validation.ConstraintViolationException: findById.arg0: 最小不能小于3
+            System.err.println(e.getStackTrace());
+        }
         return user;
     }
 
     /** feign通过post方法访问user */
-    @GetMapping("/testPost")
-    public User testPost(@RequestBody User user){
+    //GET:http://localhost:7901/testPost?id=1&username=zhansan
+    @GetMapping("/testPost")    //支持不加@RequestParam的复杂类型的User
+//    @RequestMapping(method = RequestMethod.GET, value="/testPost")   //支持不加@RequestParam的复杂类型的User
+    public User testPost(@ModelAttribute User user){   //支持加或不加@RequestParam的基本类型的User, 加@ModelAttribute或者不加都可以
         return this.userFeignClient.postUser(user);
+    }
+
+    //POST:http://localhost:7901/testPost1?id=1&username=zhansan  //url中的参数直接注入到了对象中
+    @PostMapping("/testPost1")  //支持不加@RequestParam的复杂类型的User(只接收url中参数)
+    public User testPost1(User user){
+        return this.userFeignClient.postUser(user);
+    }
+
+    //http://localhost:7901/testPost2?id=1&username=zhansan&aa=11111  //url中的参数无法通过@RequestBody获取
+    @PostMapping("/testPost2")  //支持加@RequestBody的复杂类型的User,通过在body({"username":"2","age":1})通过json格式(Content-Type:application/json)
+                                //user对象封装body中的参数, user2对象封装url中的参数, aa封装字符串"11111"
+    public User testPost2(@RequestBody User user, User user2, String aa){
+        return this.userFeignClient.postUser(user);
+    }
+
+    //POST:http://localhost:7901/testPost3?username=11&username=22   //url中的参数无法通过@RequestBody获取
+    @PostMapping("/testPost3")  //支持加@RequestBody的复杂类型的User,通过在body({"username":"2","age":1})通过json格式(Content-Type:application/json)
+    public User testPost3(@RequestParam String[] username){
+        User user1 = new User();
+        user1.setId(33L);
+        user1.setName("longxn3333");
+        return user1;
+    }
+
+    //POST:http://localhost:7901/testPost1?id=1&username=zhansan   //url中的参数无法通过@RequestBody获取
+    @PutMapping("/testPut1")  //支持加@RequestBody的复杂类型的User,通过在body({"username":"2","age":1})通过json格式(Content-Type:application/json)
+    public User testPut1(@RequestBody User user){
+        User user1 = new User();
+        user1.setId(33L);
+        user1.setName("longxn3333");
+        return user1;
+    }
+
+    //POST:http://localhost:7901/testPost1?id=1&username=zhansan   //url中的参数无法通过@RequestBody获取
+    @DeleteMapping("/testDelete")  //支持加@RequestBody的复杂类型的User,通过在body({"username":"2","age":1})通过json格式(Content-Type:application/json)
+    public User testDelete(User user2, String aa){
+        return this.userFeignClient.postUser(user2);
     }
 
     /** feign通过get方法访问user测试, (访问包405错误) */

@@ -71,7 +71,6 @@
 		<module>microservice-consumer-movie-ribbon-customizing-configuration</module>
 		<module>microservice-consumer-movie-feign-customizing-properties</module>
 		<module>microservice-consumer-movie-ribbon-customizing-properties-hystrix</module>
-		<module>microservice-consumer-movie-feign</module>
 		<module>microservice-hystrix-dashboard</module>
 		<module>microservice-gateway-zuul</module>
 		<module>microservice-config-server</module>
@@ -80,7 +79,6 @@
 		<module>microservice-spring-cloud-admin-client</module>
 		<module>microservice-trace-zipkin-server</module>
 		<module>microservice-trace-zipkin-client</module>
-		<module>microservice-trace-Sleuth-zipkin-server</module>
     </modules>
 
     <repositories>
