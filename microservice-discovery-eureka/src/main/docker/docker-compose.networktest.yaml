@@ -1,0 +1,31 @@
+version: '3'
+#networks:
+#  vdp-network:
+#    driver: bridge
+services:
+  eureka-peer1:
+    image: docker.io/centos:latest
+#    networks:
+#      - vdp-network
+    ports:
+      - "8761:8761"
+#    environment:
+#      - spring.profiles.active=peer1
+
+  eureka-peer2:
+    image: docker.io/centos:latest
+#    networks:
+#      - vdp-network
+    ports:
+      - "8762:8762"
+#    environment:
+#      - spring.profiles.active=peer2
+
+  eureka-peer3:
+    image: docker.io/centos:latest
+#      networks:
+#        - vdp-network
+    ports:
+      - "8763:8763"
+#    environment:
+#      - spring.profiles.active=peer3

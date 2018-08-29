@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8086
 spring:
   application:
     name: admin-client  #display name on Eureka web page
@@ -15,17 +15,18 @@ spring:
       fail-fast: true
   ### Spring Boot Admin Client config
   boot:
-      admin:
-        client:
-          url: http://localhost:8084
+    admin:
+      client:
+        url: http://localhost:20002
 eureka:
   client:
     serviceUrl:
 #      defaultZone: http://admin:123@localhost:10000/eureka/
-      defaultZone: http://localhost:10000/eureka/
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8761/eureka/,http://eurekaserver3:8761/eureka/
 #      defaultZone: http://${security.user.name}:${security.user.password}@localhost:10000/eureka/
-    healthcheck: # dependency on spring-boot-starter-actuator
-      enabled: true
+#    healthcheck: # dependency on spring-boot-starter-actuator
+#      enabled: true
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}

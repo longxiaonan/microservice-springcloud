@@ -1,0 +1,33 @@
+# 前置条件
+#1. 先通过maven插件将项目build在dockerhost
+#2. 在dockerhost中能通过docker images能查询到了下文中的各个image
+#3. 将文件该文件内容copy到dockerhost中的任意目录的docker-compose.yaml文件中, 再执行docker-compose up, 将按照下文的配置启动相应容器
+
+version: '3'
+networks:
+  vdp-network:
+    driver: bridge
+services:
+  eureka-server1:
+    image: 183.63.187.150:8082/itmuch/microservice-discovery-eureka:0.0.4
+    networks:
+      - vdp-network
+    ports:
+      - "10000:10000"
+#    environment:
+#      - spring.profiles.active=test_ha_1
+
+  config-servier1:
+    image: 183.63.187.150:8082/itmuch/microservice-config-server:0.0.5
+    networks:
+      - vdp-network
+    volumes:
+      - /apps/vdp/conf:/apps/vdp/conf
+    privileged: true
+    depends_on:
+      - eureka-server1
+    #hostname: eurekaserver2
+    ports:
+      - "8801:8801"
+#    environment:
+#      - spring.profiles.active=test_ha_2

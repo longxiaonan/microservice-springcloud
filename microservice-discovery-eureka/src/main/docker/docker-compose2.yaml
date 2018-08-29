@@ -1,0 +1,23 @@
+# 前置条件
+#1. 先启动该目录下docker-compose.yaml的容器, 等待容器启动的完毕(可以通过通过docker-compose ps看到容器情况).
+#2. 在dockerhost中能通过docker images能查询到了下文中的各个image
+#3. 将文件该文件内容copy到dockerhost中的任意目录的docker-compose.yaml文件中, 再执行docker-compose up, 将按照下文的配置启动相应容器
+#4. config client在该文件中单独启动,否则可能config server刚刚才启动在eureka没注册完成,会导致config client启动失败
+
+version: '3'
+networks:
+  #使用同目录下docker-compose.yaml中定义的网络
+  vdp_vdp-network:
+    external: true
+services:
+  config-client1:
+    image: 183.63.187.150:8082/itmuch/microservice-config-client:0.0.3
+    networks:
+      - vdp-network
+#    depends_on:
+#      - eureka-server1
+#      - config-servier1
+    ports:
+      - "7910:7910"
+
+

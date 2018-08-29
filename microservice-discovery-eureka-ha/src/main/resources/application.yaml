@@ -1,0 +1,49 @@
+
+eureka:
+  datacenter: cloud # Modify eureka web display of system status
+  environmemt: develop # Modify eureka web display of system status
+  instance:
+    prefer-ip-address: true #Default access method by hostname,we usually to configure true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #Modify instance display name at the Eureka web
+spring:
+  application:
+    name: vdp-cloud-base-discovery-eurika
+
+---
+
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaserver2:8762/eureka/,http://eurekaserver3:8763/eureka/
+spring:
+  profiles: peer1
+
+---
+
+server:
+  port: 8762
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver3:8763/eureka/
+spring:
+  profiles: peer2
+
+---
+
+server:
+  port: 8763
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8762/eureka/
+spring:
+  profiles: peer3

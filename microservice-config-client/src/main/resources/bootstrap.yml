@@ -4,7 +4,8 @@ eureka:
   client:
     serviceUrl:
 #      defaultZone: http://localhost:10000/eureka/  # common config
-      defaultZone: http://192.168.3.18:10000/eureka/
+#      defaultZone: http://192.168.3.18:10000/eureka/
+      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8761/eureka/,http://eurekaserver3:8761/eureka/
   instance:
     prefer-ip-address: true #default access method by hostname,we usually to configure true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}  #modify instance display name at the Eureka web

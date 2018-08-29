@@ -23,11 +23,11 @@ management:
       exposure:
         include: ["*"]  # monitor all
 
-### need to test , when open this, can't to acess the user server
+### need to test , when open this, can't to access the user server
 #microservice-provider-user:
 #  ribbon:
 #    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
-##    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 

@@ -2,10 +2,14 @@ server:
 #  port: 8761
   port: 8801
 spring:
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:20002
   application:
     name: microservice-config-server
   profiles:
-    active: native
+    active: native  #To use the native profile, launch the Config Server with spring.profiles.active=native.
   cloud:
     config:
       server:
@@ -14,3 +18,12 @@ spring:
 #          search-locations: classpath:/config/
           search-locations: C:/tmp/conf,C:/tmp/conf/{application}/{profile},C:/tmp/conf/{application}
 #          search-locations: /apps/vdp/conf,/apps/vdp/conf/{application}/{profile},/apps/vdp/conf/{application}
+
+# monitor: spring-boot-starter-actuator
+management:
+  endpoints:
+#    health:
+#      show-details: always
+    web:
+      exposure:
+        include: ["*"]  # monitor all  # ["health", "info"]
