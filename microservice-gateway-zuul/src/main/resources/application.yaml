@@ -15,15 +15,15 @@ zuul:
   ignoredServices: microservice-provider-user1,microservice-provider-user2  # ignore some service
   routes:
   #### 1. common routes, default support LoadBalancer
-#    microservice-consumer-movie: /movie/**
+#    microservice-consumer-mail: /mail/**
 #    microservice-provider-user: /user/**
   ### 2. simple url-routes
     abc: # 唯一和随意的key
       path: /user/**
       serviceId: microservice-provider-user
     abd:
-      path: /movie/**
-      serviceId: microservice-consumer-movie
+      path: /mail/**
+      serviceId: microservice-consumer-mail
 spring:
   application:
     name: microservice-gateway-zuul

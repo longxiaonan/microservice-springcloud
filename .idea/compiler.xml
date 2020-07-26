@@ -52,4 +52,26 @@
       <module name="microservice-trace-zipkin-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-config-client" options="-parameters" />
+      <module name="microservice-config-server" options="-parameters" />
+      <module name="microservice-consumer-movie" options="-parameters" />
+      <module name="microservice-consumer-movie-feign" options="-parameters" />
+      <module name="microservice-consumer-movie-feign-customizing-properties" options="-parameters" />
+      <module name="microservice-consumer-movie-feign-hystrix" options="-parameters" />
+      <module name="microservice-consumer-movie-ribbon-customizing-configuration" options="-parameters" />
+      <module name="microservice-consumer-movie-ribbon-customizing-properties" options="-parameters" />
+      <module name="microservice-consumer-movie-ribbon-customizing-properties-hystrix" options="-parameters" />
+      <module name="microservice-discovery-eureka" options="-parameters" />
+      <module name="microservice-discovery-eureka-ha" options="-parameters" />
+      <module name="microservice-gateway-zuul" options="-parameters" />
+      <module name="microservice-hystrix-dashboard" options="-parameters" />
+      <module name="microservice-provider-user" options="-parameters" />
+      <module name="microservice-spring-cloud-admin-client" options="-parameters" />
+      <module name="microservice-spring-cloud-admin-server" options="-parameters" />
+      <module name="microservice-trace-zipkin-client" options="-parameters" />
+      <module name="microservice-trace-zipkin-server" options="-parameters" />
+    </option>
+  </component>
 </project>

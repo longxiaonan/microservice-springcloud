@@ -45,7 +45,7 @@ public class UserController {
     public String test(){
         List<ServiceInstance> list1 = discoveryClient.getInstances("microservice-config-server");
         System.out.println(list1);
-        List<ServiceInstance> list2 = discoveryClient.getInstances("microservice-consumer-movie");
+        List<ServiceInstance> list2 = discoveryClient.getInstances("microservice-consumer-mail");
         System.out.println(list2);
         return null;
     }

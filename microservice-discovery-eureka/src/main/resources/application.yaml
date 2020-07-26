@@ -1,13 +1,13 @@
 # enable Eureka authentication for web platform, it dependency spring security jar
 security:
   user:
-    name: admin
-    password: 123
+    name1: admin
+    password1: 123
   basic:
     enabled: true
 server:
-#  port: 8761
-  port: 10000
+  port: 8766
+#  port: 10000
 eureka:
   datacenter: cloud     # modify eureka web display of system status
   environmemt: product  # modify eureka web display of system status

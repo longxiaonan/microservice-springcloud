@@ -14,7 +14,7 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 spring:
   application:
-    name: microservice-consumer-movie
+    name: microservice-consumer-mail
 
 # monitor: spring-boot-starter-actuator
 management:

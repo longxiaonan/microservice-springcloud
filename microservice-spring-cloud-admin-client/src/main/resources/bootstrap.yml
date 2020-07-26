@@ -5,14 +5,14 @@ spring:
     name: admin-client  #display name on Eureka web page
 #  profiles:
 #    active: dev
-  cloud:
-    config:
-      ### discovery config server from eureka
-      discovery:
-        enabled: true
-        service-id: microservice-config-server
-      profile: dev
-      fail-fast: true
+#  cloud:
+#    config:
+#      ### discovery config server from eureka
+#      discovery:
+#        enabled: true
+#        service-id: microservice-config-server
+#      profile: dev
+#      fail-fast: true
   ### Spring Boot Admin Client config
   boot:
     admin:
@@ -22,8 +22,8 @@ eureka:
   client:
     serviceUrl:
 #      defaultZone: http://admin:123@localhost:10000/eureka/
-#      defaultZone: http://localhost:8761/eureka/
-      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8761/eureka/,http://eurekaserver3:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8761/eureka/,http://eurekaserver3:8761/eureka/
 #      defaultZone: http://${security.user.name}:${security.user.password}@localhost:10000/eureka/
 #    healthcheck: # dependency on spring-boot-starter-actuator
 #      enabled: true

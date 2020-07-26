@@ -49,11 +49,18 @@
         </dependency>
         <!-- Eureka dependency end -->
 
+        <!-- admin client start -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
         <!-- 监控生产管理的模块: 开启会出现dataSource的bean依赖死循环, 暂时注释掉 -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-actuator</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
         <!-- ribbon dependency start -->
         <dependency>
